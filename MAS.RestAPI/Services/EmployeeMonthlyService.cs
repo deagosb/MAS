@@ -9,13 +9,13 @@
         /// The ShowMovies.
         /// </summary>
         /// <returns>The <see cref="string[]"/>.</returns>
-        public string[] ShowMovies()
+        public string[] ShowList()
         {
             return new string[]
             {
-            "Movie A",
-            "Movie B",
-            "Movie C"
+            "Value A",
+            "Value B",
+            "Value C"
             };
         }
     }

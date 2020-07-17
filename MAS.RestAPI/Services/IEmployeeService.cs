@@ -9,6 +9,6 @@
         /// The ShowMovies.
         /// </summary>
         /// <returns>The <see cref="string[]"/>.</returns>
-        string[] ShowMovies();
+        string[] ShowList();
     }
 }
