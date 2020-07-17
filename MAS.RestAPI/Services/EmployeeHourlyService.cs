@@ -6,17 +6,12 @@
     public class EmployeeHourlyService : IEmployeeService
     {
         /// <summary>
-        /// The ShowList.
+        /// The CalculateAnnualSalary.
         /// </summary>
-        /// <returns>The <see cref="string[]"/>.</returns>
-        public string[] ShowList()
+        /// <returns>The <see cref="double"/>.</returns>
+        public double CalculateAnnualSalary()
         {
-            return new string[]
-            {
-            "Value 1",
-            "Value 2",
-            "Value 3"
-            };
+            return 85000000;
         }
     }
 }

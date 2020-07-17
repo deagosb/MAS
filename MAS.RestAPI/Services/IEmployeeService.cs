@@ -6,9 +6,9 @@
     public interface IEmployeeService
     {
         /// <summary>
-        /// The ShowMovies.
+        /// The CalculateAnnualSalary.
         /// </summary>
-        /// <returns>The <see cref="string[]"/>.</returns>
-        string[] ShowList();
+        /// <returns>The <see cref="double"/>.</returns>
+        double CalculateAnnualSalary();
     }
 }
