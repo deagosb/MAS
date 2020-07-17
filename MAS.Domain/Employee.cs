@@ -40,11 +40,11 @@ namespace MAS.Domain
         /// <summary>
         /// Gets or sets the HourlySalary.
         /// </summary>
-        public long HourlySalary { get; set; }
+        public double HourlySalary { get; set; }
 
         /// <summary>
         /// Gets or sets the MonthlySalary.
         /// </summary>
-        public long MonthlySalary { get; set; }
+        public double MonthlySalary { get; set; }
     }
 }

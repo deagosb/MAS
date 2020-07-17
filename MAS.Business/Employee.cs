@@ -18,7 +18,7 @@ namespace MAS.Business
             IEnumerable<Domain.Employee> employees = _employeeRepository.GetAll();
 
             // TODO: Implement ITranforms 
-            return employees.To<IEnumerable<EmployeeDto>>(); ;
+            return employees.To<List<EmployeeDto>>(); ;
         }
 
         public EmployeeDto GetById(int employeeId)

@@ -1,9 +1,8 @@
 ﻿using MAS.Domain;
-using RestClient.Net;
-using System;
+using Newtonsoft.Json;
+using RestSharp;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MAS.Data
 {
@@ -24,9 +23,15 @@ namespace MAS.Data
 
         private IEnumerable<Employee> GetEmployeeList()
         {
-            Client client = new Client(new Uri("http://masglobaltestapi.azurewebsites.net/api/Employees"));
-            Task<RestClient.Net.Abstractions.Response<List<Employee>>> response = client.GetAsync<List<Employee>>();
-            return response.Result.Body;
+            // Set Client             
+            RestClient client = new RestClient("http://masglobaltestapi.azurewebsites.net/api/Employees");
+            RestRequest request = new RestRequest(Method.GET);
+
+            // Execute 
+            IRestResponse response = client.Execute(request);
+
+            // Deserialize json
+            return JsonConvert.DeserializeObject<List<Employee>>(response.Content);
         }
     }
 }

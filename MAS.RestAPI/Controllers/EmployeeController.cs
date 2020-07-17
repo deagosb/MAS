@@ -1,4 +1,5 @@
-﻿using MAS.RestAPI.Services;
+﻿using MAS.Business;
+using MAS.RestAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -16,13 +17,18 @@ namespace MAS.RestAPI.Controllers
         /// </summary>
         private readonly EmployeeFactory _employeeFactory;
 
+        private readonly Employee _employee;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="EmployeeController"/> class.
         /// </summary>
         /// <param name="employeeFactory">The employeeFactory<see cref="EmployeeFactory"/>.</param>
-        public EmployeeController(EmployeeFactory employeeFactory)
+        public EmployeeController(
+            EmployeeFactory employeeFactory,
+            Employee employee)
         {
             _employeeFactory = employeeFactory;
+            _employee = employee;
         }
 
         /// <summary>
@@ -34,6 +40,18 @@ namespace MAS.RestAPI.Controllers
         public IEnumerable<string> GetMovies(string userSelection)
         {
             return _employeeFactory.GetEmployeeService(userSelection).ShowList();
+        }
+
+        [HttpGet]
+        public IEnumerable<EmployeeDto> GetAll()
+        {
+            return _employee.GetAll();
+        }
+
+        [HttpGet("{employeeId}")]
+        public EmployeeDto GetById(int employeeId)
+        {
+            return _employee.GetById(employeeId);
         }
 
     }
