@@ -8,10 +8,12 @@
         /// <summary>
         /// The CalculateAnnualSalary.
         /// </summary>
+        /// <param name="hourlySalary">The hourlySalary<see cref="double"/>.</param>
+        /// <param name="monthlySalary">The monthlySalary<see cref="double"/>.</param>
         /// <returns>The <see cref="double"/>.</returns>
-        public double CalculateAnnualSalary()
+        public double CalculateAnnualSalary(double hourlySalary, double monthlySalary)
         {
-            return 100000000;
+            return monthlySalary * 12;
         }
     }
 }

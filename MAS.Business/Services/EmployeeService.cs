@@ -38,7 +38,7 @@ namespace MAS.Business.Services
             IEnumerable<Domain.Employee> employees = _employeeRepository.GetAll();
 
             // TODO: Implement ITranforms 
-            return employees.To<List<EmployeeDto>>(); ;
+            return employees.To<List<EmployeeDto>>();
         }
 
         /// <summary>
@@ -53,7 +53,8 @@ namespace MAS.Business.Services
             EmployeeDto employeeDto = new EmployeeDto()
             {
                 Name = employee.Name,
-                AnnualSalary = _employeeFactory.GetEmployeeService(employee.ContractTypeName).CalculateAnnualSalary()
+                ContractTypeName = employee.ContractTypeName,
+                AnnualSalary = _employeeFactory.GetEmployeeService(employee.ContractTypeName).CalculateAnnualSalary(employee.HourlySalary, employee.MonthlySalary)
             };
 
             // TODO: Implement ITranforms 

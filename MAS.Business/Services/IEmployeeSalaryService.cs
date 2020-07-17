@@ -8,7 +8,9 @@
         /// <summary>
         /// The CalculateAnnualSalary.
         /// </summary>
+        /// <param name="hourlySalary">The hourlySalary<see cref="double"/>.</param>
+        /// <param name="monthlySalary">The monthlySalary<see cref="double"/>.</param>
         /// <returns>The <see cref="double"/>.</returns>
-        double CalculateAnnualSalary();
+        double CalculateAnnualSalary(double hourlySalary, double monthlySalary);
     }
 }
