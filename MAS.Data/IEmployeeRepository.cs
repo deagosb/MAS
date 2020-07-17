@@ -6,10 +6,10 @@ namespace MAS.Data
     public interface IEmployeeRepository
     {
         IEnumerable<Employee> GetAll();
-        Employee GetById(int EmployeeID);
+        Employee GetById(int employeeId);
         //void Insert(Employee employee);
         //void Update(Employee employee);
-        //void Delete(int EmployeeID);
+        //void Delete(int employeeId);
         //void Save();
     }
 }

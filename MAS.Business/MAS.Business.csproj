@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DrPennybags.EasyMapper" Version="1.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MAS.Data\MAS.Data.csproj" />
     <ProjectReference Include="..\MAS.Domain\MAS.Domain.csproj" />
   </ItemGroup>

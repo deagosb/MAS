@@ -14,11 +14,11 @@ namespace MAS.Data
             return GetEmployeeList();
         }
 
-        public Employee GetById(int EmployeeID)
+        public Employee GetById(int employeeId)
         {
             IEnumerable<Employee> employees = GetEmployeeList();
 
-            return employees.Where(x => x.Id == EmployeeID)
+            return employees.Where(x => x.Id == employeeId)
                 .FirstOrDefault();
         }
 
