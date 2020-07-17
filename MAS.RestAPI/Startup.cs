@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MAS.Business;
+using MAS.Business.Services;
 using MAS.RestAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,7 +27,7 @@ namespace MAS.RestAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddScoped<Employee>();
+            services.AddScoped<EmployeeService>();
             services.AddScoped<EmployeeFactory>();
             services.AddScoped<EmployeeMonthlyService>();
             services.AddScoped<EmployeeHourlyService>();

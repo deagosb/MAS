@@ -1,4 +1,5 @@
 ﻿using MAS.Business;
+using MAS.Business.Services;
 using MAS.RestAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -18,21 +19,21 @@ namespace MAS.RestAPI.Controllers
         private readonly EmployeeFactory _employeeFactory;
 
         /// <summary>
-        /// Defines the _employee.
+        /// Defines the _employeeService.
         /// </summary>
-        private readonly Employee _employee;
+        private readonly EmployeeService _employeeService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EmployeeController"/> class.
         /// </summary>
         /// <param name="employeeFactory">The employeeFactory<see cref="EmployeeFactory"/>.</param>
-        /// <param name="employee">The employee<see cref="Employee"/>.</param>
+        /// <param name="employeeService">The employeeService<see cref="EmployeeService"/>.</param>
         public EmployeeController(
             EmployeeFactory employeeFactory,
-            Employee employee)
+            EmployeeService employeeService)
         {
             _employeeFactory = employeeFactory;
-            _employee = employee;
+            _employeeService = employeeService;
         }
 
         /// <summary>
@@ -53,7 +54,7 @@ namespace MAS.RestAPI.Controllers
         [HttpGet]
         public IEnumerable<EmployeeDto> GetAll()
         {
-            return _employee.GetAll();
+            return _employeeService.GetAll();
         }
 
         /// <summary>
@@ -64,7 +65,7 @@ namespace MAS.RestAPI.Controllers
         [HttpGet("{employeeId}")]
         public EmployeeDto GetById(int employeeId)
         {
-            return _employee.GetById(employeeId);
+            return _employeeService.GetById(employeeId);
         }
     }
 }
