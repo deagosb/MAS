@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MAS.Business.Services;
-using MAS.RestAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -29,8 +28,8 @@ namespace MAS.RestAPI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddScoped<EmployeeService>();
             services.AddScoped<EmployeeFactory>();
-            services.AddScoped<EmployeeMonthlyService>();
-            services.AddScoped<EmployeeHourlyService>();
+            services.AddScoped<EmployeeSalaryMonthlyService>();
+            services.AddScoped<EmployeeSalaryHourlyService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,9 +1,9 @@
-﻿namespace MAS.RestAPI.Services
+﻿namespace MAS.Business.Services
 {
     /// <summary>
-    /// Defines the <see cref="IEmployeeService" />.
+    /// Defines the <see cref="IEmployeeSalaryService" />.
     /// </summary>
-    public interface IEmployeeService
+    public interface IEmployeeSalaryService
     {
         /// <summary>
         /// The CalculateAnnualSalary.

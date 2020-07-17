@@ -15,11 +15,18 @@ namespace MAS.Business.Services
         private readonly IEmployeeRepository _employeeRepository;
 
         /// <summary>
+        /// Defines the _employeeFactory.
+        /// </summary>
+        private readonly EmployeeFactory _employeeFactory;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="EmployeeService"/> class.
         /// </summary>
-        public EmployeeService()
+        /// <param name="employeeFactory">The employeeFactory<see cref="EmployeeFactory"/>.</param>
+        public EmployeeService(EmployeeFactory employeeFactory)
         {
             _employeeRepository = new EmployeeAPIRepository();
+            _employeeFactory = employeeFactory;
         }
 
         /// <summary>
@@ -43,8 +50,15 @@ namespace MAS.Business.Services
         {
             Domain.Employee employee = _employeeRepository.GetById(employeeId);
 
+            EmployeeDto employeeDto = new EmployeeDto()
+            {
+                Name = employee.Name,
+                AnnualSalary = _employeeFactory.GetEmployeeService(employee.ContractTypeName).CalculateAnnualSalary()
+            };
+
             // TODO: Implement ITranforms 
-            return employee.To<EmployeeDto>();
+            //return employee.To<EmployeeDto>();
+            return employeeDto;
         }
     }
 }

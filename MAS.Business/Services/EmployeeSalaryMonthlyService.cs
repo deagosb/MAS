@@ -1,9 +1,9 @@
-﻿namespace MAS.RestAPI.Services
+﻿namespace MAS.Business.Services
 {
     /// <summary>
-    /// Defines the <see cref="EmployeeHourlyService" />.
+    /// Defines the <see cref="EmployeeSalaryMonthlyService" />.
     /// </summary>
-    public class EmployeeHourlyService : IEmployeeService
+    public class EmployeeSalaryMonthlyService : IEmployeeSalaryService
     {
         /// <summary>
         /// The CalculateAnnualSalary.
@@ -11,7 +11,7 @@
         /// <returns>The <see cref="double"/>.</returns>
         public double CalculateAnnualSalary()
         {
-            return 85000000;
+            return 100000000;
         }
     }
 }

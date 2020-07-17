@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MAS.RestAPI.Services
+namespace MAS.Business.Services
 {
     /// <summary>
     /// Defines the <see cref="EmployeeFactory" />.
@@ -24,15 +24,17 @@ namespace MAS.RestAPI.Services
         /// <summary>
         /// The GetEmployeeService.
         /// </summary>
-        /// <param name="userSelection">The userSelection<see cref="string"/>.</param>
-        /// <returns>The <see cref="IEmployeeService"/>.</returns>
-        public IEmployeeService GetEmployeeService(string userSelection)
+        /// <param name="contractTypeName">The contractTypeName<see cref="string"/>.</param>
+        /// <returns>The <see cref="IEmployeeSalaryService"/>.</returns>
+        public IEmployeeSalaryService GetEmployeeService(string contractTypeName)
         {
 
-            if (userSelection == "hourly")
-                return (IEmployeeService)_serviceProvider.GetService(typeof(EmployeeHourlyService));
+            if (contractTypeName == "HourlySalaryEmployee")
+            {
+                return (IEmployeeSalaryService)_serviceProvider.GetService(typeof(EmployeeSalaryHourlyService));
+            }
 
-            return (IEmployeeService)_serviceProvider.GetService(typeof(EmployeeMonthlyService));
+            return (IEmployeeSalaryService)_serviceProvider.GetService(typeof(EmployeeSalaryMonthlyService));
         }
     }
 }
