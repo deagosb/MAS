@@ -1,5 +1,6 @@
 ﻿using DrPennybags.EasyMapper;
 using MAS.Data;
+using MAS.Domain;
 using System.Collections.Generic;
 
 namespace MAS.Business.Services
@@ -35,10 +36,18 @@ namespace MAS.Business.Services
         /// <returns>The <see cref="IEnumerable{EmployeeDto}"/>.</returns>
         public IEnumerable<EmployeeDto> GetAll()
         {
-            IEnumerable<Domain.Employee> employees = _employeeRepository.GetAll();
+            IEnumerable<Employee> employees = _employeeRepository.GetAll();
 
-            // TODO: Implement ITranforms 
-            return employees.To<List<EmployeeDto>>();
+            List<EmployeeDto> employeeDtos = employees.To<List<EmployeeDto>>();
+
+            foreach (EmployeeDto employeeDto in employeeDtos)
+            {
+                // Calculate Annual Salary
+                employeeDto.AnnualSalary =
+                    _employeeFactory.GetEmployeeService(employeeDto.ContractTypeName).CalculateAnnualSalary(employeeDto.HourlySalary, employeeDto.MonthlySalary);
+            }
+
+            return employeeDtos;
         }
 
         /// <summary>
@@ -48,17 +57,14 @@ namespace MAS.Business.Services
         /// <returns>The <see cref="EmployeeDto"/>.</returns>
         public EmployeeDto GetById(int employeeId)
         {
-            Domain.Employee employee = _employeeRepository.GetById(employeeId);
+            Employee employee = _employeeRepository.GetById(employeeId);
 
-            EmployeeDto employeeDto = new EmployeeDto()
-            {
-                Name = employee.Name,
-                ContractTypeName = employee.ContractTypeName,
-                AnnualSalary = _employeeFactory.GetEmployeeService(employee.ContractTypeName).CalculateAnnualSalary(employee.HourlySalary, employee.MonthlySalary)
-            };
+            EmployeeDto employeeDto = employee.To<EmployeeDto>();
 
-            // TODO: Implement ITranforms 
-            //return employee.To<EmployeeDto>();
+            // Calculate Annual Salary
+            employeeDto.AnnualSalary =
+                _employeeFactory.GetEmployeeService(employeeDto.ContractTypeName).CalculateAnnualSalary(employeeDto.HourlySalary, employeeDto.MonthlySalary);
+
             return employeeDto;
         }
     }
