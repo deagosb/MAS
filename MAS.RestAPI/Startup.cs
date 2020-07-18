@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MAS.Business.Services;
+﻿using MAS.Business.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace MAS.RestAPI
 {
@@ -26,6 +20,14 @@ namespace MAS.RestAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             services.AddScoped<EmployeeService>();
             services.AddScoped<EmployeeFactory>();
             services.AddScoped<EmployeeSalaryMonthlyService>();
@@ -39,6 +41,8 @@ namespace MAS.RestAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("MyPolicy");
 
             app.UseMvc();
         }
