@@ -3,8 +3,8 @@
 ### About the project  
 ### [Follow Me on Twitter for Updates](https://twitter.com/intent/follow?screen_name=deagosb&tw_p=followbutton)
 
-This project attempts to demonstrate the use of some SOLID principles and design based on best practices.
-Also, the code was builded using some design patterns like Factory Method and Repository. 
+This project attempts to demonstrate the use of some [SOLID Principles](https://medium.com/backticks-tildes/the-s-o-l-i-d-principles-in-pictures-b34ce2f1e898) and design based on best practices.
+Also, the code was builded using some design patterns like [Factory Method](https://code-maze.com/factory-method/) and [Repository](https://code-maze.com/net-core-web-development-part4/). 
 The Unit Test was builded using [XUnit](https://xunit.github.io/) 
 
 
@@ -26,6 +26,3 @@ Open a command line on the directory `AngularClient` and run `ng serve -o` for a
 [Repository Design Pattern in C#](https://dotnettutorials.net/lesson/repository-design-pattern-csharp/)
 
 [Unit testing C# in .NET Core using dotnet test and xUnit](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test)
-
-
-
