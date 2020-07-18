@@ -1,0 +1,7 @@
+<button (click)="GetEmployees()">Get Employees</button>
+
+<ul *ngIf="employees">
+  <li *ngFor="let employee of employees">
+    <p>{{ employee.name }}</p>
+  </li>
+</ul>
