@@ -41,23 +41,4 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
-  GetEmployeesOld() {
-    this.data.getEmployees().subscribe(data => {
-      this.employees = data;
-      this.showList = true;
-      console.log(this.employees);
-    }
-    );
-  }
-
-  GetEmployeeById(employeeId: string) {
-    this.data.getEmployeeById(employeeId).subscribe(data => {
-      this.employee = data;
-      this.showList = false;
-      console.log(this.employee);
-    }
-    );
-  }
-
 }
