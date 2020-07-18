@@ -33,7 +33,7 @@ namespace MAS.XUnitTest
         [Fact]
         public void Calculate_Hourly_Annual_Salary_Not_Equal()
         {
-            Assert.NotEqual(0, _employeeSalaryHourlyService.CalculateAnnualSalary(60000, 80000));
+            Assert.NotEqual(960000.0, _employeeSalaryHourlyService.CalculateAnnualSalary(60000, 80000));
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace MAS.XUnitTest
         [Fact]
         public void Calculate_Monthly_Annual_Salary_Not_Equal()
         {
-            Assert.NotEqual(0, _employeeSalaryMonthlyService.CalculateAnnualSalary(60000, 80000));
+            Assert.NotEqual(86400000.0, _employeeSalaryMonthlyService.CalculateAnnualSalary(60000, 80000));
         }
 
         /// <summary>
