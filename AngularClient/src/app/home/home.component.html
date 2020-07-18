@@ -1,7 +1,51 @@
-<button (click)="GetEmployees()">Get Employees</button>
+<div class="container">
+  <p>
+    <input type="text" [(ngModel)]="employeeId" /><br />
+    <!-- <strong>You said: </strong> {{ employeeId }} -->
+  </p>
+  <p><button (click)="GetEmployees()">Get Employees</button></p>
+</div>
 
-<ul *ngIf="employees">
-  <li *ngFor="let employee of employees">
-    <p>{{ employee.name }}</p>
-  </li>
-</ul>
+<div class="container" *ngIf="!showList">
+  <ul *ngIf="employee">
+    <li>
+      <p>Id: {{ employee.id }}</p>
+      <p>Name:</p>
+      <p class="name">{{ employee.name }}</p>
+      <p>
+        Contract Type: <b>{{ employee.contractTypeName }}</b>
+      </p>
+      <p>
+        Hourly Salary: <b>{{ employee.hourlySalary }}</b>
+      </p>
+      <p>
+        Monthly Salary: <b>{{ employee.monthlySalary }}</b>
+      </p>
+      <p class="annualSalary">
+        Anual Salary: <b>{{ employee.annualSalary }}</b>
+      </p>
+    </li>
+  </ul>
+</div>
+
+<div class="container" *ngIf="showList">
+  <ul *ngIf="employees">
+    <li *ngFor="let employee of employees">
+      <p>Id: {{ employee.id }}</p>
+      <p>Name:</p>
+      <p class="name">{{ employee.name }}</p>
+      <p>
+        Contract Type: <b>{{ employee.contractTypeName }}</b>
+      </p>
+      <p>
+        Hourly Salary: <b>{{ employee.hourlySalary }}</b>
+      </p>
+      <p>
+        Monthly Salary: <b>{{ employee.monthlySalary }}</b>
+      </p>
+      <p class="annualSalary">
+        Anual Salary: <b>{{ employee.annualSalary }}</b>
+      </p>
+    </li>
+  </ul>
+</div>

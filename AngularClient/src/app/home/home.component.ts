@@ -1,3 +1,4 @@
+import { Employee } from './../../assets/Employee';
 import { EmployeeService } from './../employee.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   // tslint:disable-next-line: ban-types
-  employees: Object;
+  employees: Employee[];
+  employee: Employee;
+  showList = false;
+  employeeId = '';
+
 
   constructor(private data: EmployeeService) { }
 
@@ -18,10 +23,39 @@ export class HomeComponent implements OnInit {
   }
 
   GetEmployees() {
+    if (this.employeeId.length > 0) {
+      this.data.getEmployeeById(this.employeeId).subscribe(data => {
+        this.employee = data;
+        this.showList = false;
+        console.log(this.employee);
+      }
+      );
+    }
+    else {
+      this.data.getEmployees().subscribe(data => {
+        this.employees = data;
+        this.showList = true;
+        console.log(this.employees);
+      }
+      );
+    }
+  }
+
+
+  GetEmployeesOld() {
     this.data.getEmployees().subscribe(data => {
-      // tslint:disable-next-line: semicolon
-      this.employees = data
+      this.employees = data;
+      this.showList = true;
       console.log(this.employees);
+    }
+    );
+  }
+
+  GetEmployeeById(employeeId: string) {
+    this.data.getEmployeeById(employeeId).subscribe(data => {
+      this.employee = data;
+      this.showList = false;
+      console.log(this.employee);
     }
     );
   }
