@@ -1,5 +1,5 @@
 # MAS
-## .NET Solution & Angular Client 
+## .NET Core Web API & Angular Client App
 ### About the project  
 ### [Follow Me on Twitter for Updates](https://twitter.com/intent/follow?screen_name=deagosb&tw_p=followbutton)
 
@@ -10,7 +10,7 @@ The Unit Test was builded using [XUnit](https://xunit.github.io/)
 
 ## Components 
 
-This implementation includes an .NET Core Web API and a Angular App Client. 
+This implementation includes an .NET Core Web API and a Angular Client App. 
 The .NET Core Web API was builded on Visual Studio Community Edition 2017.
 The Angular App Client was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.11.
 ## Running the .NET Core Web API
