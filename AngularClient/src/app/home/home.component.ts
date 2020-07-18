@@ -23,21 +23,31 @@ export class HomeComponent implements OnInit {
   }
 
   GetEmployees() {
+    this.Reset()
     if (this.employeeId.length > 0) {
       this.data.getEmployeeById(this.employeeId).subscribe(data => {
         this.employee = data;
-        this.showList = false;
         console.log(this.employee);
       }
       );
+      this.showList = false;
     }
     else {
       this.data.getEmployees().subscribe(data => {
         this.employees = data;
-        this.showList = true;
         console.log(this.employees);
       }
       );
+      this.showList = true;
+    }
+  }
+
+  Reset() {
+    if (this.employee != null) {
+      this.employee = null;
+    }
+    if (this.employees != null) {
+      this.employees = null;
     }
   }
 
