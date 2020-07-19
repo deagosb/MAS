@@ -1,8 +1,23 @@
-<div *ngIf="employee">
-  <h2>Name: {{ employee.name | uppercase }}</h2>
-  <div><span>Id: </span>{{ employee.id }}</div>
-  <div><span>Contract Type: </span>{{ employee.contractTypeName }}</div>
-  <div><span>Hourly Salary: </span>{{ employee.hourlySalary }}</div>
-  <div><span>Monthly Salary: </span>{{ employee.monthlySalary }}</div>
-  <div><span>Anual Salary: </span>{{ employee.annualSalary }}</div>
+<div *ngIf="employee" class="container">
+  <span>Id: {{ employee.id }}</span>
+  <br />
+  <span
+    >Name: <b>{{ employee.name | uppercase }}</b></span
+  >
+  <br />
+  <span>
+    Contract Type: <b>{{ employee.contractTypeName }}</b>
+  </span>
+  <br />
+  <span>
+    Hourly Salary: <b>{{ employee.hourlySalary | currency }}</b>
+  </span>
+  <br />
+  <span>
+    Monthly Salary: <b>{{ employee.monthlySalary | currency }}</b>
+  </span>
+  <br />
+  <span class="annualSalary">
+    Anual Salary: <b>{{ employee.annualSalary | currency }}</b>
+  </span>
 </div>

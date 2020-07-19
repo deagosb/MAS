@@ -6,26 +6,21 @@ ul {
   flex-wrap: wrap;
 
   li {
-    background: rgb(238, 238, 238);
+    background: rgb(215, 215, 248);
     padding: 1em;
     margin-right: 10px;
-    width: 20%;
+    width: 25%;
     height: 200px;
     margin-bottom: 1em;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
 
-    p {
+    span {
       font-size: 0.8rem;
       margin: 0;
     }
 
-    p.name {
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    p.annualSalary {
+    span.annualSalary {
       font-size: 0.9rem;
       flex-grow: 1;
     }
