@@ -9,21 +9,7 @@
 <div class="container" *ngIf="!showList">
   <ul *ngIf="employee">
     <li>
-      <p>Id: {{ employee.id }}</p>
-      <p>Name:</p>
-      <p class="name">{{ employee.name }}</p>
-      <p>
-        Contract Type: <b>{{ employee.contractTypeName }}</b>
-      </p>
-      <p>
-        Hourly Salary: <b>{{ employee.hourlySalary }}</b>
-      </p>
-      <p>
-        Monthly Salary: <b>{{ employee.monthlySalary }}</b>
-      </p>
-      <p class="annualSalary">
-        Anual Salary: <b>{{ employee.annualSalary }}</b>
-      </p>
+      <app-employee-detail [employee]="employee"></app-employee-detail>
     </li>
   </ul>
 </div>
@@ -31,21 +17,7 @@
 <div class="container" *ngIf="showList">
   <ul *ngIf="employees">
     <li *ngFor="let employee of employees">
-      <p>Id: {{ employee.id }}</p>
-      <p>Name:</p>
-      <p class="name">{{ employee.name }}</p>
-      <p>
-        Contract Type: <b>{{ employee.contractTypeName }}</b>
-      </p>
-      <p>
-        Hourly Salary: <b>{{ employee.hourlySalary }}</b>
-      </p>
-      <p>
-        Monthly Salary: <b>{{ employee.monthlySalary }}</b>
-      </p>
-      <p class="annualSalary">
-        Anual Salary: <b>{{ employee.annualSalary }}</b>
-      </p>
+      <app-employee-detail [employee]="employee"></app-employee-detail>
     </li>
   </ul>
 </div>
